@@ -5,22 +5,31 @@
 .main {
   background-color: #0d0221;
   color: white;
-  height: 93vh;
+  height: 88vh;
   overflow-y: scroll;
 }
 
-.footer{
-  height: 7vh;
+.header, .footer{
+  height: 6vh;
   background-color: #2e2157;
   color: white;
 }
 
+.header a{
+  color: white;
+  text-decoration: none;
+}
+
 .icon{
-    height: 2rem;
+    height: 1.5rem;
 }
 
 .blog-preview{
   text-align: justify;
+}
+
+.blog-preview a{
+  color: #920075;
 }
 
 .blog-preview-img{

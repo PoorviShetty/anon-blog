@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 
 const Post = () => {
   let { slug } = useParams();
-  console.log(slug)
   const [postContent, setPostContent] = useState("");
 
   useEffect(() => {
@@ -15,7 +14,7 @@ const Post = () => {
           .then(response => setPostContent(response))
           .catch(err => console.log(err))
       })
-  }, []);
+  }, [slug]);
 
   return (
     <article className="article">
