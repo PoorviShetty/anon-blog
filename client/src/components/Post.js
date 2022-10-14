@@ -1,7 +1,5 @@
 import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch'
-//import Markdown from "markdown-to-jsx"
-
 
 const Post = () => {
   let { slug } = useParams();
@@ -19,10 +17,7 @@ const Post = () => {
           <h1>{data && data.title}</h1>
           <h6>{data && data.date}</h6>
           <br/>
-          
-          {/* <Markdown> */}
-            {data && data.text}
-          {/* </Markdown> */}
+          {data && <div dangerouslySetInnerHTML={{__html: `<strong>${data.text}</strong>`}} />}
         </div>
       </div>
     </article>
