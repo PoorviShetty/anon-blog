@@ -1,0 +1,32 @@
+.App{
+  font-family: 'Ubuntu' !important;
+}
+
+.main {
+  background-color: #0d0221;
+  color: white;
+  height: 93vh;
+  overflow-y: scroll;
+}
+
+.footer{
+  height: 7vh;
+  background-color: #2e2157;
+  color: white;
+}
+
+.icon{
+    height: 2rem;
+}
+
+.blog-preview{
+  text-align: justify;
+}
+
+.blog-preview-img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  /* hello */
+}
