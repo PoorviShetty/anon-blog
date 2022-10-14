@@ -1,5 +1,4 @@
 import React from 'react'
-import Lead from '../images/preview.jpg'
 import { Link } from "react-router-dom";
 import useFetch from '../hooks/useFetch'
 
@@ -19,9 +18,9 @@ function Preview(date) {
           <p className='text-center'>
             {data && data.date}
           </p>
-          <img src={Lead} alt='preview' className='blog-preview-img pb-3' />
+          <img src={data && data.img} className='blog-preview-img pb-3' alt="blog-preview"/>
           <p className='blog-preview'>
-            {data && data.text.substring(0, 280) + "..."} &nbsp;
+            {data && data.desc + "..."} &nbsp;
             <Link to={`/post/${date.data}`}>Read More</Link>
           </p>
           <hr/> 

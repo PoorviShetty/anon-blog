@@ -9,6 +9,7 @@ blogRoutes.route("/posts").get(function (req, res) {
  db_connect
    .collection("posts")
    .find({})
+   .sort({date : -1})
    .toArray(function (err, result) {
      if (err) throw err;
      res.json(result);
@@ -30,6 +31,7 @@ blogRoutes.route("/post/add").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myobj = {
    title: req.body.title,
+   desc: req.body.desc,
    date: req.body.date,
    img: req.body.img,
    text: req.body.text
@@ -47,6 +49,7 @@ blogRoutes.route("/post/:date").post(function (req, response) {
  let newvalues = {
    $set: {
     title: req.body.title,
+    desc: req.body.desc,
     date: req.body.date,
     img: req.body.img,
     text: req.body.text

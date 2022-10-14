@@ -16,6 +16,7 @@ const Post = () => {
 
           <h1>{data && data.title}</h1>
           <h6>{data && data.date}</h6>
+          <img src={data && data.img} className='blog-img pb-3' alt="blog img"/>
           <br/>
           {data && <div dangerouslySetInnerHTML={{__html: `<strong>${data.text}</strong>`}} />}
         </div>
