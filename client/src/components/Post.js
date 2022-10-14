@@ -1,28 +1,28 @@
-import Markdown from "markdown-to-jsx"
-import { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom';
+import useFetch from '../hooks/useFetch'
+//import Markdown from "markdown-to-jsx"
+
 
 const Post = () => {
   let { slug } = useParams();
-  const [postContent, setPostContent] = useState("");
+  const { data, error } = useFetch(
+    process.env.REACT_APP_BACKEND_URL + 'post/' + slug
+  );
 
-  useEffect(() => {
-    import(`../markdown/${slug}.md`)
-      .then(res => {
-        fetch(res.default)
-          .then(response => response.text())
-          .then(response => setPostContent(response))
-          .catch(err => console.log(err))
-      })
-  }, [slug]);
+  if (error) console.log(error);
 
   return (
     <article className="article">
       <div className="container">
         <div className="post-wrapper">
-          <Markdown>
-            {postContent}
-          </Markdown>
+
+          <h1>{data && data.title}</h1>
+          <h6>{data && data.date}</h6>
+          <br/>
+          
+          {/* <Markdown> */}
+            {data && data.text}
+          {/* </Markdown> */}
         </div>
       </div>
     </article>
